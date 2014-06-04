@@ -22,11 +22,12 @@ public class GRBApps {
 
 	public static void main(String[] args) {
 		//serial.run();
-		tampilWindow("0.7");
+		try {tampilWindow("0.7");}
+		catch (IOException e) {}
 
 	}
 
-	public static void tampilWindow(String berat) {//throws IOException {
+	public static void tampilWindow(String berat) throws IOException {
 		// untuk menampilkan frame yang menerima input nama dan npm, disertakan
 		// field berisi berat yang tidak bisa diedit
 		DataField dataField = new DataField(berat);
@@ -42,7 +43,7 @@ public class GRBApps {
 	}
 
 	public static void setData(String npm, String nama, String berat) {
-	/*	if (npm.equals(""))
+		if (npm.equals(""))
 			try {
 				GRBApps.tampilWindow(berat);
 			} catch (IOException e) {
@@ -50,7 +51,7 @@ public class GRBApps {
 				e.printStackTrace();
 			}
 		else {
-	*/		DBConnect connect = new DBConnect(); // inisialisasi object
+			DBConnect connect = new DBConnect(); // inisialisasi object
 													// dbconnect
 			recordNPM = connect.cekNPM(); // mengambil semua npm yang ada di db
 
@@ -67,7 +68,7 @@ public class GRBApps {
 				connect.insert(npm, nama, berat);
 
 			cekThreshold();
-		//}
+		}
 
 	}
 
@@ -108,7 +109,7 @@ public class GRBApps {
 
 	}
 */
-/*	public static void sms() {
+	public static void sms() {
 		try {
 			URL smsGateway = new URL("http://localhost/grb/sms.php");
 			URLConnection sg = smsGateway.openConnection();
@@ -127,5 +128,5 @@ public class GRBApps {
 		}
 
 	}
-*/
+
 }
